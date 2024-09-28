@@ -2,14 +2,29 @@ str = input()
 
 patterns = ['-', '.', '=', '$', '_']
 
-# if str[0] not in patterns:
-str = str.replace(str[0], str[0].lower())
+if str.count('-')+str.count('.')+str.count('=')+str.count('$')+str.count('_') == 0:
+  str = str.lower()
 
-i = 1
+i = 0
+s = ''
 while i<len(str):
-  if str[i] in patterns:
-    s = str[i+1].upper()
-    str = str[0:i] + s + str[i+2:]
+  if str[i] not in patterns:
+    s += str[i]
+  else:
+    s += '|'
   i+=1
 
-print(str)
+s = s.split('|')
+
+i = 0
+result = ''
+while i<len(s):
+  if i==0:
+    result = s[i].lower()
+  else:
+    tmp = s[i].lower()
+    result += tmp[0].upper() + tmp[1:]
+
+  i+=1
+
+print(result)
