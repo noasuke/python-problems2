@@ -12,7 +12,7 @@ while i<len(str):
   i+=1
 
 data.append(str[start:i])
-print(data)
+# print(data)
 
 result = ''
 size = len(data)
